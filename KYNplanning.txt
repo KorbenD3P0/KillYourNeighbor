@@ -10,3 +10,34 @@ This is the planning and pseudocode doc for the Kill Your Neighbor card game
 5. Each hand needs to end with checking how many cards each player has; game ends when someone hits 0.
 6. Game needs to display who won and provide option to continue or not. 
 
+First, the program needs to define, deal and display those cards for the player, and deal the 
+same amount of cards from the same "deck", so that of the ~54 cards, the game knows what player 
+has, what CPU has, and remains in the deck.
+
+The program needs to take a card from the remaining deck and have it be the starting card; 
+player should chose from their hand what to play in response to the first card, and CPU will 
+play next. The game cannot start without the first card being selected and displayed.
+
+The game needs to evaluate what is valid and what is not, as well as if any player has 0 cards.
+The goal is to run out of cards each round, since the first player to reach x00 points loses 
+the game as a whole. 
+
+There are rules for certain cards:
+2: can be played on 2 of any suit, recipient draws 2 cards if they cannot add a 2 to the pile. 
+    These can stack. 
+4: skips the next player in line; in a 2 player game, this brings the play right back to the 
+    player who uses a 4. These can be played back to back to back.
+Jack: allows player to select the suit, but player must wait a round before they can play 
+    another card; the risk is the suit being different by the time it comes back around.
+King: Reverses the flow of the game. Gameplay with more than 2 players is "clockwise".
+    These can be played back to back to back.
+Joker: Draw 5; these can stack. 
+The rest of the cards are incidental and played based on if they match the current suit or 
+face (This is what a successful play validates against; the only cards that do not have to 
+match NEITHER suit nor face are Jacks and Jokers)
+
+Each group of cards has its own point assignment: 
+2-9 = 5 points
+10, J, Q, K = 10 points
+Aces = 40 points
+Jokers = 50 points
