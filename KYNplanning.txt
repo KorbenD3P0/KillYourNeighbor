@@ -1,0 +1,12 @@
+This is the planning and pseudocode doc for the Kill Your Neighbor card game 
+
+1. The deck of cards needs to be defined. 
+2. Each card's value/assignment needs to be defined. 
+3. The game loop needs to be defined, this includes card actions like jokers += 5 cards and being able 
+    to stack, Kings being able to reverse the path, Jacks changing the accepted suit for that hand, etc. 
+4. Within each function, action, verb, etc. there needs to be a print statement advising what action/s are
+    taking place behind the scenes. <==== This is the crux of the assignment and where we will demonstrate 
+    learning and comprehension. 
+5. Each hand needs to end with checking how many cards each player has; game ends when someone hits 0.
+6. Game needs to display who won and provide option to continue or not. 
+
