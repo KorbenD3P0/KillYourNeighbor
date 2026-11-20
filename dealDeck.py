@@ -41,11 +41,27 @@ def dealHands(deck, hands):
             card = deck.pop(position)   #removes the card from the deck as 'card'
             hand.append(card)   #puts it in player's hand
     print("The CPU players have been dealt their cards.\n")
+    #dealHands doesn't return anything because it's just manupilating data, not creating it
 
+def flipStartingCard(deck):
     #Now we need to pick a starting card at random, and we have a lot of code already done from the deck creation
     #No for loop is needed this time since we're only picking and assigning a single card
     position = random.randint(0, len(deck) - 1)
-    startingCard = deck.pop(position)
+    return deck.pop(position)
+    #buildDeck, makeHands and flipStartingCard create something, so they return something
+
+
+def createGame(numDecks, cpuCount):
+    deck = buildDeck(numDecks)
+    hands = makeHands(cpuCount + 1)
+    dealHands(deck, hands)
+    startingCard = flipStartingCard(deck)
+    return hands, deck, startingCard
+    #createGame is the one that ties all of the functions together and returns all 3 retulst
+
+
+
+#The below has been set aside to be used in the gameLoop
     startEffects = input("Should the starting card trigger its effect? (y/n) ").lower()
     #This will determine if the first card has any authority or not
 
