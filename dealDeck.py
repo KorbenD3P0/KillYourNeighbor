@@ -15,7 +15,7 @@ def buildDeck(numDecks):
             #for each suit in the SUITS constant ->
             for face in FACES:
                 #for each face in the FACES constant ->
-                deck.append(face, suit)
+                deck.append([face, suit])
                 #iterate through the list to connect every face to every suit once
         print(f"Selected cards are then added to the deck with 'append'. Example: deck.append(face + \" of \" + suit)\n")
         #The game comes with jokers for extra sauce. 50 points/5 cards each!
