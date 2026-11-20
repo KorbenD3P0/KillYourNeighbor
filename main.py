@@ -1,5 +1,5 @@
 #Deb confirmed that a main.py is necessary
-from settings import LIME, RED, GREEN, YELLOW, RESET, BLUE #Importing colors from settings to display text correctly
+from settings import LIME, RED, GREEN, YELLOW, RESET, BLUE, HAND_SIZE, CARDS_PER_DECK #Importing colors from settings to display text correctly
 from dealDeck import createGame #Import the main function creating the game components
 from gameLoop import runGame #Import the main function running the game loop
 
@@ -45,6 +45,13 @@ def main():
     startEffects = input("Should the starting card trigger its effect? (y/n) ").lower()
     #This decides if things like 2's, jokers, or other active cards take effect on the first play    
 
+    #The below is a check for when players try to deal for more players than decks allow
+    cardsNeeded = (cpuCount +1) & HAND_SIZE + 1# Every active hand, plus the starting card
+    chosenDecks = numDecks
+    while numDecks * CARDS_PER_DECK < cardsNeeded:
+        numDecks = numDecks + 1
+    if numDecks > chosenDecks:
+        print(f"{chosenDecks} deck(s) only has {chosenDecks * CARDS_PER_DECK} cards, but seven cards for {cpuCount + 1} needs {cardsNeeded}. Added decks to accommodate, so now using {numDecks}.")
     hands, deck, starting_card = createGame(numDecks, cpuCount)
     runGame(hands, deck, starting_card, cpuCount, startEffects)
 

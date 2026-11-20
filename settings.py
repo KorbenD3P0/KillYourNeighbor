@@ -14,3 +14,5 @@ FACES = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"] #Defi
 
 HAND_SIZE = 7 #Starting hands are always 7
 LOSING_SCORE = 100 #Determine what ends the game
+
+CARDS_PER_DECK = len(SUITS) * len(FACES) + 2 #4 suits x 13 faces, plus 2 jokers
