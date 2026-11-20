@@ -1,6 +1,11 @@
 from settings import LIME, YELLOW, BLUE, RESET
-from dealDeck import flipStartingCard
 import random
+
+def cardName(card):
+    #name the cards in your hand for when you refer to them in the game
+    if card[0] == "Joker":
+        return "Joker"
+    return card[0] + "of "+ card[1]
 
 def runGame(hands, deck, startingCard, cpuCount, startEffects):
     playerCount = cpuCount + 1

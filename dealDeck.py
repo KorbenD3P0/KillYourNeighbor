@@ -20,7 +20,7 @@ def buildDeck(numDecks):
         deck.append(["Joker", "none"])
         deck.append(["Joker", "none"])    #INSIDE the deck loop, so every deck gets its own 2 jokers
         input(f"The outer loop (range(numDecks)) repeats once per deck amount chosen, the middle loop once per suit, and the inner loop once per face.\nPress {RED}enter{RESET} to continue...\n")
-        return deck
+    return deck
 
 
 def makeHands(playerCount):

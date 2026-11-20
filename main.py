@@ -46,7 +46,7 @@ def main():
     #This decides if things like 2's, jokers, or other active cards take effect on the first play    
 
     #The below is a check for when players try to deal for more players than decks allow
-    cardsNeeded = (cpuCount +1) & HAND_SIZE + 1# Every active hand, plus the starting card
+    cardsNeeded = (cpuCount +1) * HAND_SIZE + 1# Every active hand, plus the starting card
     chosenDecks = numDecks
     while numDecks * CARDS_PER_DECK < cardsNeeded:
         numDecks = numDecks + 1
