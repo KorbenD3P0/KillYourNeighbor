@@ -8,3 +8,20 @@ turn = random.randint(0, cpuCount)    # 0 is player, 1 and up are CPUs
 direction = 1                     # a King will flip this to -1
 roundOver = False                 # tracks the game status
 
+def run_game(hands, starting_card, cpu_count):
+    while roundOver == False:
+        top = lastPlayed[-1] #tell the program that the last card played (-1) is the card to remember 
+        print(f"\nTop Card: {top[0]} of {top[1]}") #0 is face, 1 is suit
+        print("Your turn. Your hand:")
+
+    print(f"Starting card is: {startingCard[0]} of {startingCard[1]}") #0 is the face and 1 is the suit value
+print("Your hand:")
+for card in hands[0]:   #As player 0, this displays your hand as a list
+    print(f"  {card[0]} of {card[1]}") #This had to be updated to include both variables that make up a card
+
+    #Let's assign each card a number so player doesn't have to type the whole thing out
+    currentPlay = input("What card would you like to play? ")
+
+    #Begin card assessment
+    if currentPlay == "Joker":
+        card = hands.pop(position) #Remove the card from the player's hand
