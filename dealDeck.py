@@ -58,21 +58,3 @@ def createGame(numDecks, cpuCount):
     startingCard = flipStartingCard(deck)
     return hands, deck, startingCard
     #createGame is the one that ties all of the functions together and returns all 3 retulst
-
-
-
-#The below has been set aside to be used in the gameLoop
-    startEffects = input("Should the starting card trigger its effect? (y/n) ").lower()
-    #This will determine if the first card has any authority or not
-
-    print(f"Starting card is: {startingCard[0]} of {startingCard[1]}") #0 is the face and 1 is the suit value
-    print("Your hand:")
-    for card in hands[0]:   #As player 0, this displays your hand as a list
-        print(f"  {card[0]} of {card[1]}") #This had to be updated to include both variables that make up a card
-
-#Let's assign each card a number so player doesn't have to type the whole thing out
-currentPlay = input("What card would you like to play? ")
-
-#Begin card assessment
-if currentPlay == "Joker":
-    card = hands.pop(position) #Remove the card from the player's hand
