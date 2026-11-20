@@ -1,7 +1,6 @@
 import random
 from settings import SUITS, FACES, HAND_SIZE, YELLOW, RESET, LIME, BLUE
 
-print(LIME+"Welcome to Kill Your Neighbor! "+RESET+"I'll be teaching you a card game and how to write some python code today.\n")
 print("These messages are displayed via the "+YELLOW+"'print'"+RESET+", function, like "+YELLOW+"'print(\"Hello, World!\")\n"+RESET)
 print(f"A "+BLUE+"'constant'"+RESET+" is a (usually capitalized) value defined once at the top that the program never changes, like suits and faces.\nExample: "+BLUE+"SUITS = [\"Hearts\", \"Diamonds\", \"Clubs\", \"Spades\"]"+RESET)
 print("Hand size ("+BLUE+"7 per player"+RESET+") and the losing score ("+BLUE+"currently 100"+RESET+") are also both defined as "+BLUE+"constants"+RESET+".\n")

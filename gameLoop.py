@@ -10,11 +10,16 @@ def runGame(hands, deck, startingCard, cpuCount, startEffects):
     direction = 1                     # a King will flip this to -1
     roundOver = False                 # tracks the game status
 
+    print(f"Starting card is: {startingCard[0]} of {startingCard[1]}") #0 is the face and 1 is the suit value
     while not roundOver:
         top = lastPlayed[-1] #tell the program that the last card played (-1) is the card to remember 
         print(f"\nTop Card: {top[0]} of {top[1]}") #0 is face, 1 is suit
-        
-    print("Your hand:")
+        if turn == 0:
+            print("Your turn. Your hand: ")
+            displayHand(hands[0])
+        else:
+            print(f"CPU {turn}'s turn.")
+
     for card in hands[0]:   #As player 0, this displays your hand as a list
         print(f"  {card[0]} of {card[1]}") #This had to be updated to include both variables that make up a card
 
