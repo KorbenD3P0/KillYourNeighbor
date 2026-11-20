@@ -1,13 +1,12 @@
 import random
-from settings import SUITS, FACES, HAND_SIZE, YELLOW, RESET, LIME, BLUE
+from settings import SUITS, FACES, HAND_SIZE, RED, YELLOW, RESET, LIME, BLUE
 
-print("These messages are displayed via the "+YELLOW+"'print'"+RESET+", function, like "+YELLOW+"'print(\"Hello, World!\")\n"+RESET)
-print(f"A "+BLUE+"'constant'"+RESET+" is a (usually capitalized) value defined once at the top that the program never changes, like suits and faces.\nExample: "+BLUE+"SUITS = [\"Hearts\", \"Diamonds\", \"Clubs\", \"Spades\"]"+RESET)
-print("Hand size ("+BLUE+"7 per player"+RESET+") and the losing score ("+BLUE+"currently 100"+RESET+") are also both defined as "+BLUE+"constants"+RESET+".\n")
 #With the above defined, the components necessary to build a deck are compiled
 def buildDeck(numDecks):
     deck = []   #create a variable to save the end result into memory
-    print("\nNow a set of '"+ YELLOW+"for loops"+RESET+"' build the deck. A "+ YELLOW+"loop"+RESET+" repeats the indented lines under it, once per item. Example:")
+    input("\nNow, a set of '"+ YELLOW+"for loops"+RESET+"' build the deck. A "+ YELLOW+"loop"+RESET+" repeats the indented lines under it, once per item. Press "+BLUE+"enter"+RESET+" to see an example.")
+    print(YELLOW+"for d in range(numDecks)"+RESET+":\n#for the number of 'd for decks' the player selects V\n    "+YELLOW+"for suit in SUITS"+RESET+":\n    #for each suit in the SUITS constant V\n        "+YELLOW+"for face in FACES"+RESET+":\n        #for each face in the FACES constant V")
+    input(f"Press {YELLOW}enter{RESET} to continue...\n")
     for d in range(numDecks):
         #check against the number of decks the player selects
         for suit in SUITS:
@@ -16,14 +15,13 @@ def buildDeck(numDecks):
                 #for each face in the FACES constant ->
                 deck.append([face, suit])
                 #iterate through the list to connect every face to every suit once
-        print(f"Selected cards are then added to the deck with 'append'. Example: deck.append(face + \" of \" + suit)\n")
+        input(f"Selected cards are then added to the deck with "+ YELLOW+"'append'"+ RESET+". Example: deck.append(face + \" of \" + suit)\nPress "+ RED+"enter"+ RESET+" to continue.")
         #The game comes with jokers for extra sauce. 50 points/5 cards each!
         deck.append(["Joker", "none"])
         deck.append(["Joker", "none"])    #INSIDE the deck loop, so every deck gets its own 2 jokers
+        input(f"The outer loop (range(numDecks)) repeats once per deck amount chosen, the middle loop once per suit, and the inner loop once per face.\nPress {RED}enter{RESET} to continue...\n")
         return deck
 
-print(YELLOW+"for d in range(numDecks)"+RESET+":\n#for the number of 'd for decks' the player selects V\n    "+YELLOW+"for suit in SUITS"+RESET+":\n    #for each suit in the SUITS constant V\n        "+YELLOW+"for face in FACES"+RESET+":\n        #for each face in the FACES constant V")
-print("The outer loop (range(numDecks)) repeats once per deck amount chosen, the middle loop once per suit, and the inner loop once per face.\n")
 
 def makeHands(playerCount):
     hands = [] #create the variable for player's hands
