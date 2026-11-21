@@ -15,11 +15,12 @@ def buildDeck(numDecks):
                 #for each face in the FACES constant ->
                 deck.append([face, suit])
                 #iterate through the list to connect every face to every suit once
-        input(f"Selected cards are then added to the deck with "+ YELLOW+"'append'"+ RESET+". Example: deck.append(face + \" of \" + suit)\nPress "+ RED+"enter"+ RESET+" to continue.")
         #The game comes with jokers for extra sauce. 50 points/5 cards each!
         deck.append(["Joker", "none"])
         deck.append(["Joker", "none"])    #INSIDE the deck loop, so every deck gets its own 2 jokers
-        input(f"The outer loop (range(numDecks)) repeats once per deck amount chosen, the middle loop once per suit, and the inner loop once per face.\nPress {RED}enter{RESET} to continue...\n")
+    input(f"Selected cards are then added to the deck with "+ YELLOW+"'append'"+ RESET+". Example: deck.append(face + \" of \" + suit)\nPress "+ RED+"enter"+ RESET+" to continue.")
+    input(f"The outer loop (range(numDecks)) repeats once per deck amount chosen, the middle loop once per suit, and the inner loop once per face.\nPress {RED}enter{RESET} to continue...\n")
+    #OUTSIDE the deck loop, so it doesn't loop endlessly
     return deck
 
 def makeHands(playerCount):

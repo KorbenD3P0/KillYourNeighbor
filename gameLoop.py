@@ -45,10 +45,3 @@ def runGame(hands, deck, startingCard, cpuCount, startEffects):
         #The card being played needs to be legal, function to check needs written, along with if the cpu has any legal cards in hand
         print("Your turn. Your hand: ")
         displayHand(hands[0])
-
-    for card in hands[0]:   #As player 0, this displays your hand as a list
-        print(f"  {card[0]} of {card[1]}") #This had to be updated to include both variables that make up a card
-
-    #Let's assign each card a number so player doesn't have to type the whole thing out
-    currentPlay = input("What card would you like to play? ")
-
