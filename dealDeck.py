@@ -22,7 +22,6 @@ def buildDeck(numDecks):
         input(f"The outer loop (range(numDecks)) repeats once per deck amount chosen, the middle loop once per suit, and the inner loop once per face.\nPress {RED}enter{RESET} to continue...\n")
     return deck
 
-
 def makeHands(playerCount):
     hands = [] #create the variable for player's hands
     for n in range(playerCount): 
@@ -46,7 +45,6 @@ def flipStartingCard(deck):
     position = random.randint(0, len(deck) - 1)
     return deck.pop(position)
     #buildDeck, makeHands and flipStartingCard create something, so they return something
-
 
 def createGame(numDecks, cpuCount):
     deck = buildDeck(numDecks)

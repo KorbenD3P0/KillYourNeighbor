@@ -3,9 +3,14 @@ import random
 
 def cardName(card):
     #name the cards in your hand for when you refer to them in the game
-    if card[0] == "Joker":
+    if card[0] == "Joker": #Jokers are the only different card
         return "Joker"
     return card[0] + "of "+ card[1]
+
+def displayHand(hand):
+    for h in range(len(hand)):
+    #for each individual card h/hand from beginning to end, in order, from data source 'hand'
+        print(f" {h + 1}. {cardName(hand[h])}")
 
 def runGame(hands, deck, startingCard, cpuCount, startEffects):
     playerCount = cpuCount + 1
@@ -16,14 +21,19 @@ def runGame(hands, deck, startingCard, cpuCount, startEffects):
     roundOver = False                 # tracks the game status
 
     print(f"Starting card is: {startingCard[0]} of {startingCard[1]}") #0 is the face and 1 is the suit value
-    while not roundOver:
+    while roundOver == False:
         top = lastPlayed[-1] #tell the program that the last card played (-1) is the card to remember 
         print(f"\nTop Card: {top[0]} of {top[1]}") #0 is face, 1 is suit
         if turn == 0:
-            print("Your turn. Your hand: ")
-            displayHand(hands[0])
+            who = "You"
         else:
-            print(f"CPU {turn}'s turn.")
+            who= f"CPU {turn}"
+
+        cardPlayed = False
+        card = None
+
+        print("Your turn. Your hand: ")
+        displayHand(hands[0])
 
     for card in hands[0]:   #As player 0, this displays your hand as a list
         print(f"  {card[0]} of {card[1]}") #This had to be updated to include both variables that make up a card
