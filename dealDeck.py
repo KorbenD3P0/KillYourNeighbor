@@ -4,8 +4,8 @@ from settings import SUITS, FACES, HAND_SIZE, RED, YELLOW, RESET, LIME, BLUE
 #With the above defined, the components necessary to build a deck are compiled
 def buildDeck(numDecks):
     deck = []   #create a variable to save the end result into memory
-    input("\nNow, a set of '"+ YELLOW+"for loops"+RESET+"' build the deck. A "+ YELLOW+"loop"+RESET+" repeats the indented lines under it, once per item. Press "+BLUE+"enter"+RESET+" to see an example.")
-    print(YELLOW+"for d in range(numDecks)"+RESET+":\n#for the number of 'd for decks' the player selects V\n    "+YELLOW+"for suit in SUITS"+RESET+":\n    #for each suit in the SUITS constant V\n        "+YELLOW+"for face in FACES"+RESET+":\n        #for each face in the FACES constant V")
+    input("\nNow, a set of '"+ YELLOW+"for loops"+RESET+"' build the deck. A "+ YELLOW+"loop"+RESET+" repeats the indented lines under it, once per item, so it will assign every face (2, 3, ..J, Q, K..) to every suit (spades, clubs, hearts or diamonds) in each pool once for each of the decks you just chose to use.\nPress "+BLUE+"enter"+RESET+" to see an example.\n")
+    print(YELLOW+"for d in range(numDecks)"+RESET+":\n#for the number of 'd for decks' the program selects\n    "+YELLOW+"for suit in SUITS"+RESET+":\n    #for each suit in the SUITS constant, it will be assigned a-\n        "+YELLOW+"for face in FACES"+RESET+":\n        #for each face in the FACES constant, bolt it to each available suit")
     input(f"Press {YELLOW}enter{RESET} to continue...\n")
     for d in range(numDecks):
         #check against the number of decks the player selects
@@ -18,7 +18,7 @@ def buildDeck(numDecks):
         #The game comes with jokers for extra sauce. 50 points/5 cards each!
         deck.append(["Joker", "none"])
         deck.append(["Joker", "none"])    #INSIDE the deck loop, so every deck gets its own 2 jokers
-    input(f"Selected cards are then added to the deck with "+ YELLOW+"'append'"+ RESET+". Example: deck.append(face + \" of \" + suit)\nPress "+ RED+"enter"+ RESET+" to continue.")
+    input(f"Selected cards are then added to the deck with "+ YELLOW+"'append'"+ RESET+". Example: deck."+ YELLOW+"append"+ RESET+"(face + \" of \" + suit)\nPress "+ RED+"enter"+ RESET+" to continue.")
     input(f"The outer loop (range(numDecks)) repeats once per deck amount chosen, the middle loop once per suit, and the inner loop once per face.\nPress {RED}enter{RESET} to continue...\n")
     #OUTSIDE the deck loop, so it doesn't loop endlessly
     return deck

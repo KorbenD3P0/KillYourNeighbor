@@ -22,6 +22,19 @@ def isLegal(card, top, currentSuit):
         return True
     return False#If no matches, not a legal card/PageLayout:
 
+def hasLegalCard(hand, top, currentSuit):
+    #Mainly used to check CPU hands each round to know if play is possible or whether to draw 1
+    found = False
+    for card in hand: 
+        if isLegal(card, top, currentSuit):
+            found = True
+        return found
+
+def drawCard(hand, deck):
+    position = random.randint(0, len(deck) -1)
+    #Draw a random card from a random place in the deck, and remove it (-1)
+    hand.append(deck.pop(position))
+
 def runGame(hands, deck, startingCard, cpuCount, startEffects):
     playerCount = cpuCount + 1
     lastPlayed = [startingCard]       # the pile; the top card is lastPlayed[-1]
