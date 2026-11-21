@@ -5,7 +5,7 @@ def cardName(card):
     #name the cards in your hand for when you refer to them in the game
     if card[0] == "Joker": #Jokers are the only different card, so it's all we need to check against
         return "Joker"
-    return card[0] + "of "+ card[1]
+    return card[0] + " of "+ card[1]
 
 def displayHand(hand):
     for h in range(len(hand)):
@@ -21,6 +21,12 @@ def isLegal(card, top, currentSuit):
         #card[1] is the suit, top[0] is the last face played, since a match is legal
         return True
     return False#If no matches, not a legal card/PageLayout:
+
+def canPlay(card, top, currentSuit, penaltyFace):
+    #needed a new function to stop asking for a play when there's an active penalty
+    if penaltyFace != "":
+        return card[0]
+    return isLegal(card, top, currentSuit)
 
 def hasLegalCard(hand, top, currentSuit):
     #Mainly used to check CPU hands each round to know if play is possible or whether to draw 1
@@ -86,4 +92,15 @@ def runGame(hands, deck, startingCard, cpuCount, startEffects):
                     card = hands[turn].pop(i)
                     cardPlayed = True
 
-        
+        if cardPlayed: 
+            lastPlayed.append(card)
+            if card[0] != "Joker":
+                currentSuit = card[1]
+            print(f"{who} played {cardName(card)}. Cards left: {len(hands[turn])}")
+            if len(hands[turn]) == 0:
+                roundOver = True
+
+        if roundOver == False:
+            turn = (turn + direction) % playerCount
+
+    print(f"\nROUND OVER! {who} ran out of cards.")
