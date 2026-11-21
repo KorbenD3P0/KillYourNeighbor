@@ -55,6 +55,8 @@ def runGame(hands, deck, startingCard, cpuCount, startEffects):
         cardPlayed = False
         card = None
 
-        #The card being played needs to be legal, function to check needs written, along with if the cpu has any legal cards in hand
-        print("Your turn. Your hand: ")
-        displayHand(hands[0])
+        if hasLegalCard(hands[turn], top, currentSuit) == False:
+            print(f"{who} can't play anything and draws a card.")
+            drawCard(hands[turn], deck)
+            #This block runs a check for a legal card in the currently playing hand each round
+
