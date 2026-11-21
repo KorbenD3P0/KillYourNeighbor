@@ -60,3 +60,30 @@ def runGame(hands, deck, startingCard, cpuCount, startEffects):
             drawCard(hands[turn], deck)
             #This block runs a check for a legal card in the currently playing hand each round
 
+        elif turn == 0:
+            print("Your turn. Your hand: ")
+            displayHand(hands[0])
+            chosen = 0
+            validPlay = False
+            while validPlay == False:
+                try:
+                    chosen = int(input("Which card number do you want to play? "))
+                    if chosen < 1 or chosen > len(hands[0]):
+                        print(f"Pick a number from 1 to {len(hands[0])}")
+                        #The print needs to know to pick from the amount of hands that exist
+                    elif isLegal(hands[0][chosen - 1], top, currentSuit) == False:
+                        print(f"{cardName(hands[0][chosen - 1])} can't go on {cardName(top)}.")
+                        #The print statement needs to update to whatever card was played
+                    else:
+                        validPlay = True
+                except ValueError:
+                    print("Enter the number to the next card.")
+            card = hands[0].pop(chosen - 1)
+            cardPlayed = True
+        else:
+            for i in range(len(hands[turn])):
+                if cardPlayed == False and isLegal(hands[turn][i], top, currentSuit):
+                    card = hands[turn].pop(i)
+                    cardPlayed = True
+
+        
